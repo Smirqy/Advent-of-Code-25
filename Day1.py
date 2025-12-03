@@ -1,5 +1,6 @@
 def main():
     file = open("Day1Input.txt")
+    # file = open("Day1InputTest.txt")
 
     lines = file.readlines()
 
@@ -11,7 +12,7 @@ def main():
         if line[0] == 'L':
             amount *= -1
         
-        passes = count_passes2(pointer, amount)
+        passes = count_passes(pointer, amount)
         count += passes
         pointer = (pointer + amount) % 100
         if pointer == 0:
@@ -41,20 +42,20 @@ def count_passes(pointer, amount):
 
     return count
 
-def count_passes2(pointer, amount):
-    if abs(amount) > 100:
-        count = int(amount/100)
-        amount = amount % 100
-    else:
-        count = 0
+# def count_passes2(pointer, amount):
+#     if abs(amount) > 100:
+#         count = int(amount/100)
+#         amount = amount % 100
+#     else:
+#         count = 0
 
-    if pointer + amount > 100:
-        count += 1
-    elif pointer + amount < 0:
-        if pointer != 0:
-            count += 1
+#     if pointer + amount > 100:
+#         count += 1
+#     elif pointer + amount < 0:
+#         if pointer != 0:
+#             count += 1
 
-    return count
+#     return count
 
 
 def test():
